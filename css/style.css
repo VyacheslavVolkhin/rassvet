@@ -707,6 +707,11 @@ html.with-fancybox body.hide-scrollbar {
   display: flex;
   gap: 10px;
 }
+.header-menu-wrap .action-wrap .button-ico img,
+.header-menu-wrap .action-wrap .button-ico svg {
+  max-width: 32px;
+  max-height: 32px;
+}
 .header-menu-wrap .action-view .btn,
 .header-menu-wrap .action-calc .btn {
   width: 100%;
