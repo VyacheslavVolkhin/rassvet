@@ -2141,6 +2141,49 @@ html.with-fancybox body.hide-scrollbar {
 /* ----------------------------------- *\
 			items styles
 \* ----------------------------------- */
+.elm-panel-widget {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  min-height: 120px;
+  background: var(--clr-bg-white);
+  z-index: 3;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.24836;
+  letter-spacing: 0.04em;
+  color: rgba(61, 71, 41, 0.5);
+  padding: 10px 10px 12px 12px;
+  width: 100%;
+  gap: 2px;
+}
+.elm-panel-widget .panel-title {
+  display: block;
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--clr-att-dark);
+  letter-spacing: normal;
+  line-height: 18px;
+  margin: 0 0 0 0;
+}
+.elm-panel-widget .panel-value {
+  display: block;
+  width: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-weight: 400;
+  font-size: 38px;
+  color: var(--clr-att-dark);
+  letter-spacing: normal;
+}
 .elm-row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2597,6 +2640,19 @@ html.with-fancybox body.hide-scrollbar {
   pointer-events: auto;
 }
 @media (min-width: 1024px) {
+  .elm-panel-widget {
+    min-height: 155px;
+    border-radius: 10px;
+    font-size: 14px;
+    gap: 8px;
+    padding: 13px 15px 16px 15px;
+  }
+  .elm-panel-widget .panel-title {
+    font-size: 18px;
+  }
+  .elm-panel-widget .panel-value {
+    font-size: 50px;
+  }
   .elm-date {
     height: 40px;
     line-height: 36px;
@@ -4477,6 +4533,26 @@ html.with-fancybox body.hide-scrollbar {
   font-weight: 600;
   width: auto;
 }
+.tiles-thumbs-slider-box .widgets-inner-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  gap: 20px 0;
+  padding: 20px 10px;
+}
+.tiles-thumbs-slider-box .widget-wrap {
+  width: 50%;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding: 0 10px;
+  max-width: 150px;
+}
 .page-title-box {
   margin-bottom: 20px;
   position: relative;
@@ -5836,6 +5912,18 @@ html.with-fancybox body.hide-scrollbar {
   }
   .info-text-box:last-child {
     margin-top: var(--sectionMarginMain);
+  }
+  .tiles-thumbs-slider-box .widgets-inner-wrap {
+    padding: 5rem;
+    bottom: auto;
+    top: 0;
+    gap: 5px;
+    margin: 0 auto;
+    max-width: 1700px;
+  }
+  .tiles-thumbs-slider-box .widget-wrap {
+    padding: 0;
+    max-width: 170px;
   }
   .tiles-thumbs-slider-box .slider-photos-thumbs {
     display: block;
