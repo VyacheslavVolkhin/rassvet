@@ -37,7 +37,7 @@
   --filterAttToLight: brightness(0) invert(1);
   --filterAttToSecond: brightness(0.98) saturate(1.2) hue-rotate(-5deg);
   --filterAttToDark: brightness(0.45) saturate(1.4) hue-rotate(-10deg);
-  font-size: 10px;
+  font-size: 10px !important;
 }
 /* variables
 
@@ -388,24 +388,27 @@ table tr:nth-child(2n) th,
 table tr:nth-child(2n) td {
   background: var(--clr-bg-light);
 }
+.bvi-open * {
+  pointer-events: none !important;
+}
 @media (max-width: 1599px) {
   :root {
-    font-size: 9.5px;
+    font-size: 9.5px !important;
   }
 }
 @media (max-width: 1399px) {
   :root {
-    font-size: 9px;
+    font-size: 9px !important;
   }
 }
 @media (max-width: 1199px) {
   :root {
-    font-size: 8.5px;
+    font-size: 8.5px !important;
   }
 }
 @media (max-width: 1023px) {
   :root {
-    font-size: 8px;
+    font-size: 8px !important;
   }
   .table-inner-wrap {
     overflow-x: auto;
@@ -450,7 +453,7 @@ table tr:nth-child(2n) td {
 }
 @media (max-width: 767px) {
   :root {
-    font-size: 7px;
+    font-size: 7px !important;
   }
 }
 @media (min-width: 1024px) {
@@ -1609,7 +1612,25 @@ html.with-fancybox body.hide-scrollbar {
     top: 100%;
     left: 0;
     right: 0;
-    background: red;
+  }
+  .header-search-wrap:before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    display: none;
+    -webkit-animation: fadein ease 0.2s;
+    animation: fadein ease 0.2s;
+    -webkit-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+  }
+  .header-search-wrap:has(.btn-popup.active):before {
+    display: block;
   }
   .header-search-wrap .search-content-block {
     position: absolute;
@@ -4706,6 +4727,9 @@ html.with-fancybox body.hide-scrollbar {
 .menu-tabs-box.type-fix .btn {
   font-size: 16px;
   line-height: 1.375;
+}
+.menu-tabs-box.type-fix .btn .button-ico {
+  height: 27px;
 }
 .menu-tabs-box .menu {
   display: -webkit-box;
@@ -9326,6 +9350,11 @@ body.popup-open {
     width: 50%;
   }
 }
+@media (min-width: 768px) {
+  .popup-box .form-main-box .field-third {
+    width: 33.33%;
+  }
+}
 @media (min-width: 1024px) {
   .popup-box {
     width: var(--max);
@@ -9372,6 +9401,9 @@ body.popup-open {
   }
   .popup-box .form-main-box .field-four {
     width: 25%;
+  }
+  .popup-box .form-main-box .field-third {
+    width: 33.33%;
   }
   .popup-box .form-main-box .frm-row-submit .frm-field {
     -webkit-box-ordinal-group: 2;

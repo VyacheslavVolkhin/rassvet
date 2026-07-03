@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
 
+
+	
+
+
 	//fancybox
 	Fancybox.bind("[data-fancybox]", {
 		//settings
@@ -23,6 +27,22 @@ document.addEventListener("DOMContentLoaded", function() {
 				},
 			},
 		},
+	});
+
+
+	//datepicker
+	flatpickr(".frm-field-input.field-datepicker .form-input", {
+		firstDayOfWeek: 0,
+		disableMobile: "true",
+		minDate: "today",
+		dateFormat: "Y-m-d",
+		locale: "ru",
+		disable: [
+			function(date) {
+				// disable every multiple of 8
+				//return !(date.getDate() % 8);
+			}
+		]
 	});
 
 

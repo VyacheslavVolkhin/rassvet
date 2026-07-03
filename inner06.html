@@ -10,9 +10,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="stylesheet" href="./css/fancybox.css" />
+        <link rel="stylesheet" href="./css/flatpickr.min.css" />
         <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
 
         <script src="./js/swiper-bundle.min.js" defer></script>
+        <script src="./js/flatpickr.js" defer></script>
+        <script src="./js/ru.js" defer></script>
         <script src="./js/inputmask.min.js" defer></script>
         <script src="./js/fancybox.umd.js" defer></script>
         <script src="./js/scripts.js" defer></script>
@@ -59,7 +62,7 @@
                             <div class="menu-top-panel">
                                 <div class="actions-inner-wrap">
                                     <div class="action-wrap action-view">
-                                        <a href="" class="btn button-light button-border">
+                                        <a href="#" class="btn button-light button-border bvi-open">
                                             <div class="button-ico">
                                                 <img src="./img/view.svg" alt="" />
                                             </div>
@@ -359,7 +362,7 @@
                                 <div class="frm-row-submit">
                                     <div class="frm-field">
                                         <div class="frm-select">
-                                            <input type="checkbox" id="footerreview" checked />
+                                            <input type="checkbox" id="footerreview" />
                                             <label for="footerreview">
                                                 <div class="lbl-title">
                                                     Отправляя данную форму, я соглашаюсь с&nbsp;
@@ -670,7 +673,7 @@
                         <div class="frm-row-submit">
                             <div class="frm-field">
                                 <div class="frm-select">
-                                    <input type="checkbox" id="popup01" checked />
+                                    <input type="checkbox" id="popup01" />
                                     <label for="popup01">
                                         <div class="lbl-title">
                                             Отправляя данную форму, я соглашаюсь с&nbsp;
@@ -689,6 +692,79 @@
                     <!--/form-main-box-->
                     <div class="elm-photo photo-cover popup-photo">
                         <img src="./img/popup01.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/popup-outer-box-->
+        <!--popup-outer-box-->
+        <div class="popup-outer-box" id="popup-form-callback">
+            <div class="popup-box">
+                <a href="" class="btn-popup-close btn button-att-dark btn-action-ico ico-close js-popup-close"></a>
+                <div class="popup-title-wrap">
+                    <div class="popup-title">Форма обратной связи</div>
+                </div>
+                <div class="popup-content-wrap">
+                    <!--form-main-box-->
+                    <form action="/" class="form-main-box">
+                        <div class="frm-row">
+                            <div class="frm-field field-third">
+                                <div class="frm-field-input">
+                                    <div class="field-input-title">Имя</div>
+                                    <div class="field-input-content">
+                                        <input type="text" class="form-input" placeholder="" value="Кирилл" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="frm-field field-third">
+                                <div class="frm-field-input">
+                                    <div class="field-input-title">E-mail</div>
+                                    <div class="field-input-content">
+                                        <input
+                                            type="email"
+                                            class="form-input"
+                                            placeholder=""
+                                            value="Ivan.nos@mail.ru"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="frm-field field-third">
+                                <div class="frm-field-input">
+                                    <div class="field-input-title">Телефон</div>
+                                    <div class="field-input-content">
+                                        <input
+                                            type="tel"
+                                            class="form-input"
+                                            placeholder="+7 (___) ___-__-__"
+                                            value="+7 988 298 45 32"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frm-row-submit">
+                            <div class="frm-field">
+                                <div class="frm-select">
+                                    <input type="checkbox" id="popup06" />
+                                    <label for="popup06">
+                                        <div class="lbl-title">
+                                            Отправляя данную форму, я соглашаюсь с&nbsp;
+                                            <a href="" class="link-main">Политикой конфиденциальности</a>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="frm-field">
+                                <button type="submit" class="btn button-arrow button-att-dark">
+                                    <div class="button-title">Отправить</div>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--/form-main-box-->
+                    <div class="elm-photo photo-cover popup-photo">
+                        <img src="./img/popup06.jpg" alt="" />
                     </div>
                 </div>
             </div>
@@ -795,7 +871,7 @@
                         <div class="frm-row-submit">
                             <div class="frm-field">
                                 <div class="frm-select">
-                                    <input type="checkbox" id="popup02" checked />
+                                    <input type="checkbox" id="popup02" />
                                     <label for="popup02">
                                         <div class="lbl-title">
                                             Отправляя данную форму, я соглашаюсь с&nbsp;
@@ -937,7 +1013,7 @@
                                     <div class="frm-field-input">
                                         <div class="field-input-content">
                                             <div class="frm-select-main">
-                                                <input type="checkbox" id="ps01" checked />
+                                                <input type="checkbox" id="ps01" />
                                                 <label for="ps01">
                                                     <div class="lbl-title">Не проживал в санатории</div>
                                                 </label>
@@ -1121,7 +1197,7 @@
                             </div>
                             <div class="frm-field">
                                 <div class="frm-select">
-                                    <input type="checkbox" id="popup03" checked />
+                                    <input type="checkbox" id="popup03" />
                                     <label for="popup03">
                                         <div class="lbl-title">
                                             Отправляя данную форму, я соглашаюсь с&nbsp;
@@ -1696,7 +1772,7 @@
                                                     <div class="frm-row-submit">
                                                         <div class="frm-field field-full">
                                                             <div class="frm-select">
-                                                                <input type="checkbox" id="popup04" checked />
+                                                                <input type="checkbox" id="popup04" />
                                                                 <label for="popup04">
                                                                     <div class="lbl-title">
                                                                         Отправляя данную форму, я соглашаюсь с&nbsp;
@@ -1752,5 +1828,16 @@
             </div>
         </div>
         <!--/popup-outer-box-->
+
+        <!-- <link rel="stylesheet" href="./css/bvi.min.css"> -->
+        <!-- <script src="./js/bvi.min.js"></script> -->
+        <script>
+            // new isvek.Bvi({
+            //     target: '.bvi-open',
+            //     lang: 'ru-RU',
+            //     fontSize: 10,
+            //     theme: 'black'
+            // });
+        </script>
     </body>
 </html>
