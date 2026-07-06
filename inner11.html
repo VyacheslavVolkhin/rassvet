@@ -62,7 +62,7 @@
                             <div class="menu-top-panel">
                                 <div class="actions-inner-wrap">
                                     <div class="action-wrap action-view">
-                                        <a href="#" class="btn button-light button-border bvi-open">
+                                        <a href="" class="btn button-light button-border">
                                             <div class="button-ico">
                                                 <img src="./img/view.svg" alt="" />
                                             </div>
@@ -1135,14 +1135,86 @@
                                 <div class="frm-field-input">
                                     <div class="field-input-title">Удобное время</div>
                                     <div class="field-input-content">
-                                        <select class="form-input" required>
-                                            <option disabled hidden value="">Выбрать</option>
-                                            <!--placeholder-->
-                                            <option selected>22:00-23:00</option>
-                                            <option>22:00-23:00</option>
-                                            <option>22:00-23:00</option>
-                                            <option>22:00-23:00</option>
-                                        </select>
+                                        <div class="frm-field-select js-popup-wrap">
+                                            <input type="text" class="form-input" placeholder="Выбрать" />
+                                            <a href="" class="btn-popup js-btn-popup-toggle"></a>
+                                            <div class="popup-content-block js-popup-block">
+                                                <div class="popup-close-wrap">
+                                                    <a href="" class="btn button-medium js-btn-popup-close">
+                                                        <div class="button-ico">
+                                                            <img src="./img/close.svg" alt="" />
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="frm-field-time">
+                                                    <ul class="menu">
+                                                        <li>
+                                                            <div class="frm-select-time">
+                                                                <input
+                                                                    type="radio"
+                                                                    name="time-range"
+                                                                    id="time-range01"
+                                                                    value="10:00-12:00"
+                                                                />
+                                                                <label for="time-range01">10:00-12:00</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="frm-select-time">
+                                                                <input
+                                                                    type="radio"
+                                                                    name="time-range"
+                                                                    id="time-range02"
+                                                                    value="12:00-14:00"
+                                                                />
+                                                                <label for="time-range02">12:00-14:00</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="frm-select-time">
+                                                                <input
+                                                                    type="radio"
+                                                                    name="time-range"
+                                                                    id="time-range03"
+                                                                    value="14:00-16:00"
+                                                                />
+                                                                <label for="time-range03">14:00-16:00</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="frm-select-time">
+                                                                <input
+                                                                    type="radio"
+                                                                    name="time-range"
+                                                                    id="time-range04"
+                                                                    value="16:00-18:00"
+                                                                />
+                                                                <label for="time-range04">16:00-18:00</label>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="frm-select-time">
+                                                                <input
+                                                                    type="radio"
+                                                                    name="time-range"
+                                                                    id="time-range05"
+                                                                    value="18:00-20:00"
+                                                                />
+                                                                <label for="time-range05">18:00-20:00</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="popup-apply-wrap">
+                                                    <a
+                                                        href=""
+                                                        class="btn button-medium button-arrow js-btn-popup-close"
+                                                    >
+                                                        <div class="button-title">Применить</div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1310,16 +1382,11 @@
                             </div>
                             <div class="frm-field">
                                 <div class="frm-field-input">
-                                    <div class="field-input-title">Заезд</div>
-                                    <div class="field-input-content">
-                                        <select class="form-input" required>
-                                            <option disabled hidden value="">Выбрать</option>
-                                            <!--placeholder-->
-                                            <option selected>22:00-23:00</option>
-                                            <option>22:00-23:00</option>
-                                            <option>22:00-23:00</option>
-                                            <option>22:00-23:00</option>
-                                        </select>
+                                    <div class="frm-field-input field-datepicker field-input-select">
+                                        <div class="field-input-title">Заезд</div>
+                                        <div class="field-input-content">
+                                            <input type="text" class="form-input" placeholder="30.03.2025" value="" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2321,15 +2388,6 @@
         </div>
         <!--/popup-outer-box-->
 
-        <!-- <link rel="stylesheet" href="./css/bvi.min.css"> -->
-        <!-- <script src="./js/bvi.min.js"></script> -->
-        <script>
-            // new isvek.Bvi({
-            //     target: '.bvi-open',
-            //     lang: 'ru-RU',
-            //     fontSize: 10,
-            //     theme: 'black'
-            // });
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/open-nagish@latest/dist/open-nagish.min.js" defer></script>
     </body>
 </html>

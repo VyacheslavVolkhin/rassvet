@@ -37,7 +37,7 @@
   --filterAttToLight: brightness(0) invert(1);
   --filterAttToSecond: brightness(0.98) saturate(1.2) hue-rotate(-5deg);
   --filterAttToDark: brightness(0.45) saturate(1.4) hue-rotate(-10deg);
-  font-size: 10px !important;
+  font-size: 10px;
 }
 /* variables
 
@@ -393,22 +393,22 @@ table tr:nth-child(2n) td {
 }
 @media (max-width: 1599px) {
   :root {
-    font-size: 9.5px !important;
+    font-size: 9.5px;
   }
 }
 @media (max-width: 1399px) {
   :root {
-    font-size: 9px !important;
+    font-size: 9px;
   }
 }
 @media (max-width: 1199px) {
   :root {
-    font-size: 8.5px !important;
+    font-size: 8.5px;
   }
 }
 @media (max-width: 1023px) {
   :root {
-    font-size: 8px !important;
+    font-size: 8px;
   }
   .table-inner-wrap {
     overflow-x: auto;
@@ -453,7 +453,7 @@ table tr:nth-child(2n) td {
 }
 @media (max-width: 767px) {
   :root {
-    font-size: 7px !important;
+    font-size: 7px;
   }
 }
 @media (min-width: 1024px) {
@@ -1501,6 +1501,11 @@ html.with-fancybox body.hide-scrollbar {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -1517,9 +1522,12 @@ html.with-fancybox body.hide-scrollbar {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     gap: 10px;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
   }
   .header-menu-wrap .menu-inner-wrap {
     width: 100%;
@@ -7115,6 +7123,104 @@ select.form-input:required:invalid {
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
+.frm-field-select {
+  position: relative;
+}
+.frm-field-select .btn-popup {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+.frm-field-select .popup-content-block {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: var(--clr-bg-white);
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: var(--smallRadius);
+  border: 1px solid var(--clr-border-light);
+}
+.frm-field-select .popup-close-wrap,
+.frm-field-select .popup-apply-wrap {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding: 10px 0;
+}
+.frm-field-select .popup-close-wrap:last-child,
+.frm-field-select .popup-apply-wrap:last-child {
+  padding-bottom: 0;
+}
+.frm-field-select .popup-close-wrap:first-child,
+.frm-field-select .popup-apply-wrap:first-child {
+  padding-top: 0;
+}
+.frm-field-select .popup-close-wrap .btn,
+.frm-field-select .popup-apply-wrap .btn {
+  width: 100%;
+  min-height: 0;
+  height: 60px;
+}
+.frm-field-select .popup-close-wrap .btn .button-ico {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  background: var(--clr-bg-white);
+  border-radius: 50%;
+  -webkit-filter: none;
+  filter: none;
+}
+.frm-field-select .popup-close-wrap .btn .button-ico img,
+.frm-field-select .popup-close-wrap .btn .button-ico svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+.frm-field-select .frm-field-time {
+  display: block;
+  position: relative;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.frm-field-select .frm-field-time::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  background-color: var(--clr-border-light);
+}
+.frm-field-select .frm-field-time::-webkit-scrollbar-thumb {
+  background-color: var(--clr-att);
+}
+.frm-field-select .frm-field-time::-webkit-scrollbar-thumb:hover {
+  background-color: var(--clr-att);
+}
+.frm-field-select .frm-field-time::-webkit-scrollbar-button:vertical:start:decrement {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+}
+.frm-field-select .frm-field-time::-webkit-scrollbar-button:vertical:end:increment {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+}
+.frm-field-select .frm-field-time::-webkit-scrollbar-button:horizontal:start:decrement {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+}
+.frm-field-select .frm-field-time::-webkit-scrollbar-button:horizontal:end:increment {
+  background-color: transparent;
+  width: 0;
+  height: 0;
+}
 .frm-field-file {
   position: relative;
   width: 100%;
@@ -7414,7 +7520,8 @@ select.form-input:required:invalid {
 }
 .frm-select,
 .frm-select-button,
-.frm-select-main {
+.frm-select-main,
+.frm-select-time {
   position: relative;
   display: block;
   overflow: hidden;
@@ -7422,7 +7529,8 @@ select.form-input:required:invalid {
 }
 .frm-select input,
 .frm-select-button input,
-.frm-select-main input {
+.frm-select-main input,
+.frm-select-time input {
   display: block;
   position: absolute;
   top: 0;
@@ -7435,12 +7543,14 @@ select.form-input:required:invalid {
 }
 .frm-select input:checked ~ label:after,
 .frm-select-button input:checked ~ label:after,
-.frm-select-main input:checked ~ label:after {
+.frm-select-main input:checked ~ label:after,
+.frm-select-time input:checked ~ label:after {
   opacity: 1;
 }
 .frm-select label,
 .frm-select-button label,
-.frm-select-main label {
+.frm-select-main label,
+.frm-select-time label {
   display: block;
   position: relative;
   cursor: pointer;
@@ -7448,17 +7558,38 @@ select.form-input:required:invalid {
 .frm-select label:before,
 .frm-select-button label:before,
 .frm-select-main label:before,
+.frm-select-time label:before,
 .frm-select label:after,
 .frm-select-button label:after,
-.frm-select-main label:after {
+.frm-select-main label:after,
+.frm-select-time label:after {
   content: "";
   display: block;
   position: absolute;
 }
 .frm-select label:after,
 .frm-select-button label:after,
-.frm-select-main label:after {
+.frm-select-main label:after,
+.frm-select-time label:after {
   opacity: 0;
+}
+.frm-select-time {
+  font-size: 16px;
+  line-height: 20px;
+}
+.frm-select-time label {
+  display: block;
+  position: relative;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+  padding: 9px 15px;
+  text-align: center;
+}
+.frm-select-time label:hover {
+  background: var(--clr-border-light);
+}
+.frm-select-time input:checked ~ label {
+  background: var(--clr-border-light);
 }
 .frm-select-main input:checked ~ label:before {
   opacity: 1;

@@ -369,6 +369,24 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 		}
 	})
+	// time select → form-input
+	document.querySelectorAll('.frm-field-select.js-popup-wrap').forEach(function(wrap) {
+		const input = wrap.querySelector('.form-input');
+		const radios = wrap.querySelectorAll('.frm-field-time input[type="radio"]');
+
+		if (!input || !radios.length) return;
+
+		function syncTimeInput() {
+			const checked = wrap.querySelector('.frm-field-time input[type="radio"]:checked');
+			input.value = checked ? checked.value : '';
+		}
+
+		syncTimeInput(); // при загрузке, если есть checked
+
+		radios.forEach(function(radio) {
+			radio.addEventListener('change', syncTimeInput);
+		});
+	});
 
 
 	//js tabs
