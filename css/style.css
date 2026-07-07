@@ -37,7 +37,7 @@
   --filterAttToLight: brightness(0) invert(1);
   --filterAttToSecond: brightness(0.98) saturate(1.2) hue-rotate(-5deg);
   --filterAttToDark: brightness(0.45) saturate(1.4) hue-rotate(-10deg);
-  font-size: 10px;
+  font-size: 10px !important;
 }
 /* variables
 
@@ -393,22 +393,22 @@ table tr:nth-child(2n) td {
 }
 @media (max-width: 1599px) {
   :root {
-    font-size: 9.5px;
+    font-size: 9.5px !important;
   }
 }
 @media (max-width: 1399px) {
   :root {
-    font-size: 9px;
+    font-size: 9px !important;
   }
 }
 @media (max-width: 1199px) {
   :root {
-    font-size: 8.5px;
+    font-size: 8.5px !important;
   }
 }
 @media (max-width: 1023px) {
   :root {
-    font-size: 8px;
+    font-size: 8px !important;
   }
   .table-inner-wrap {
     overflow-x: auto;
@@ -453,7 +453,7 @@ table tr:nth-child(2n) td {
 }
 @media (max-width: 767px) {
   :root {
-    font-size: 7px;
+    font-size: 7px !important;
   }
 }
 @media (min-width: 1024px) {

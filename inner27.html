@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="./css/fancybox.css" />
         <link rel="stylesheet" href="./css/flatpickr.min.css" />
         <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="./css/bvi.css" />
 
         <script src="./js/swiper-bundle.min.js" defer></script>
         <script src="./js/flatpickr.js" defer></script>
@@ -62,7 +63,7 @@
                             <div class="menu-top-panel">
                                 <div class="actions-inner-wrap">
                                     <div class="action-wrap action-view">
-                                        <a href="" class="btn button-light button-border">
+                                        <a href="#" class="btn button-light button-border bvi-open">
                                             <div class="button-ico">
                                                 <img src="./img/view.svg" alt="" />
                                             </div>
@@ -2547,6 +2548,12 @@
         </div>
         <!--/popup-outer-box-->
 
-        <!-- <script src="./js/open-nagish.min.js" defer></script> -->
+        <script src="./js/bvi.js"></script>
+        <script>
+            new isvek.Bvi({
+                target: ".bvi-open",
+                fontSize: 10,
+            });
+        </script>
     </body>
 </html>
