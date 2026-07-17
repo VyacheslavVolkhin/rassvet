@@ -2389,6 +2389,10 @@ html.with-fancybox body.hide-scrollbar {
   text-transform: uppercase;
   font-weight: bold;
 }
+.elm-panel-button.type-view.type-button-text {
+  width: auto;
+  max-width: inherit;
+}
 .elm-panel-button .btn {
   border: 5px solid var(--clr-bg-white);
   width: 58px;
@@ -2873,6 +2877,16 @@ html.with-fancybox body.hide-scrollbar {
   line-height: 1.3;
   letter-spacing: -0.01em;
   color: var(--clr-base-light);
+}
+.item-tile-room .elm-panel-button {
+  opacity: 0;
+  top: 55%;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+.item-tile-room:hover .elm-panel-button {
+  opacity: 1;
+  top: 50%;
 }
 .item-tile-feature-ico {
   display: -webkit-box;
@@ -4048,6 +4062,23 @@ html.with-fancybox body.hide-scrollbar {
 .article-box {
   margin-bottom: var(--sectionMargin);
   position: relative;
+}
+.article-box .text-content-button:has(.active) + .text-content-more {
+  height: auto;
+  margin-top: 5rem;
+}
+.article-box .text-content-more {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  interpolate-size: allow-keywords;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+  font-weight: 300;
+}
+.article-box .text-content-more .h2-title {
+  font-weight: 400;
+  margin-bottom: 3rem;
 }
 .article-box .full-section-wrap {
   margin: 24px 0;
@@ -5670,6 +5701,9 @@ html.with-fancybox body.hide-scrollbar {
   .tiles-outer-box .item-tile-faq .tile-content-block {
     max-width: 49.17647059em;
   }
+  .article-box .text-content-more .h2-title {
+    font-size: 3.5rem;
+  }
   .article-box .small-section-wrap {
     max-width: 930px;
   }
@@ -6787,7 +6821,8 @@ select.form-input:required:invalid {
   -webkit-filter: var(--filterAttToBase);
   filter: var(--filterAttToBase);
 }
-.button-arrow .button-title:after {
+.button-arrow .button-title:after,
+.button-arrow-toggle .button-title:after {
   content: "";
   display: inline-block;
   vertical-align: middle;
@@ -6798,6 +6833,14 @@ select.form-input:required:invalid {
   background-size: 24px auto;
   -webkit-transition: all ease 0.2s;
   transition: all ease 0.2s;
+}
+.button-arrow-toggle.active .button-title:after {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.button-arrow-toggle .button-title:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 .btn.active .button-active-toggle:before {
   opacity: 0;
@@ -7723,6 +7766,18 @@ select.form-input:required:invalid {
   border: none;
   background: url(../img/icons/check.svg) center / 24px auto no-repeat;
   opacity: 0;
+}
+.frm-content {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  interpolate-size: allow-keywords;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+.frm-content.active {
+  height: auto;
+  margin-bottom: 15px;
 }
 @media (max-width: 1023px) {
   .frm-row,

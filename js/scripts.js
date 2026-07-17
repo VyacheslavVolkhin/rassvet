@@ -30,6 +30,133 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 
 
+	//form add and remore row
+	document.addEventListener('click', function(e) {
+		const addButton = e.target.closest('.js-add-row');
+		if (addButton) {
+			e.preventDefault();
+			handleAddRow(addButton);
+			return;
+		}
+
+		const removeButton = e.target.closest('.js-remove-row');
+		if (removeButton) {
+			e.preventDefault();
+			handleRemoveRow(removeButton);
+			return;
+		}
+	});
+	function handleAddRow(addButton) {
+		const currentSection = addButton.closest('.js-section-wrap');
+		const currentRow = addButton.closest('.js-recipient-row');
+		
+		const newRow = currentRow.cloneNode(true);
+		
+		const inputs = newRow.querySelectorAll('input[type="text"]');
+		inputs.forEach(input => {
+			input.value = '';
+		});
+		
+		const selects = newRow.querySelectorAll('select');
+		selects.forEach(select => {
+			select.selectedIndex = 0;
+		});
+
+		const newAddButton = newRow.querySelector('.js-add-row');
+		if (newAddButton) {
+			newAddButton.classList.remove('js-add-row');
+			newAddButton.classList.add('js-remove-row');
+			
+			const icon = newAddButton.querySelector('.btn-action-ico');
+			if (icon) {
+				icon.classList.remove('ico-add');
+				icon.classList.add('ico-del');
+				icon.classList.add('button-border');
+			}
+			
+			const title = newAddButton.querySelector('.button-title');
+			if (title) {
+				title.textContent = 'Удалить';
+			}
+		}
+
+		const newSection = document.createElement('div');
+		newSection.className = 'frm-section-wrap js-section-wrap';
+		newSection.setAttribute('data-section', 'recipient');
+		newSection.innerHTML = `
+			<div class="frm-row js-recipient-row">
+				${newRow.innerHTML}
+			</div>
+		`;
+
+		currentSection.parentNode.insertBefore(newSection, currentSection.nextSibling);
+	}
+	function handleRemoveRow(removeButton) {
+		const section = removeButton.closest('.js-section-wrap');
+		const allSections = document.querySelectorAll('.js-section-wrap[data-section="recipient"]');
+		
+		if (allSections.length <= 1) {
+			return;
+		}
+
+		section.remove();
+	}
+	
+
+
+	
+
+
+	//select toggle content visibility
+	  const inputs = document.querySelectorAll(
+		"input[data-content], input[data-content-check], input[data-content-uncheck]"
+	  );
+	
+	  inputs.forEach(function (input) {
+		toggleContent(input);
+		});
+	
+	  inputs.forEach((input) => {
+		input.addEventListener("click", function () {
+		  document.querySelectorAll(".frm-content").forEach((content) => {
+			content.classList.remove("active");
+				});
+	
+		  inputs.forEach(toggleContent);
+			});
+		});
+	
+	  document.querySelectorAll(".btn[data-content]").forEach((button) => {
+		button.addEventListener("click", function () {
+		  let dataContent = this.getAttribute("data-content");
+		  this.disabled = true;
+		  document
+			.querySelectorAll('.frm-content[data-content="' + dataContent + '"]')
+			.forEach((content) => {
+			  content.classList.add("active");
+				});
+		  return false;
+			});
+		});
+	
+	  function toggleContent(input) {
+		let selectContent;
+		if (input.checked) {
+		  selectContent =
+			input.getAttribute("data-content-check") ||
+			input.getAttribute("data-content");
+			} else {
+		  selectContent = input.getAttribute("data-content-uncheck");
+			}
+		document
+		  .querySelectorAll('.frm-content[data-content="' + selectContent + '"]')
+		  .forEach((content) => {
+			content.classList.add("active");
+			});
+		}
+
+
+
 	//datepicker
 	flatpickr(".frm-field-input.field-datepicker .form-input", {
 		firstDayOfWeek: 0,
