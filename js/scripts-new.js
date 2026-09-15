@@ -61,6 +61,48 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	  });
 	}
+
+
+
+	//new 12.09.2026
+
+	//copy tooltip function
+	function showCopyTooltip() {
+		let tip = document.querySelector('.copy-tooltip');
+		if (!tip) {
+			tip = document.createElement('div');
+			tip.className = 'copy-tooltip';
+			tip.textContent = 'Ссылка скопирована в буфер обмена';
+			document.body.appendChild(tip);
+		}
+		tip.classList.add('show');
+	
+		clearTimeout(showCopyTooltip._t);
+		showCopyTooltip._t = setTimeout(() => tip.classList.remove('show'), 2000);
+	}
+	function fallbackCopy(text) {
+		const ta = document.createElement('textarea');
+		ta.value = text;
+		ta.style.position = 'fixed';
+		ta.style.opacity = '0';
+		document.body.appendChild(ta);
+		ta.select();
+		let ok = false;
+		try { ok = document.execCommand('copy'); } catch (e) {}
+		document.body.removeChild(ta);
+		return ok;
+	}
+	document.addEventListener('click', (e) => {
+		const btn = e.target.closest('.js-copy-link');
+		if (!btn) return;
+		e.preventDefault();
+	
+		navigator.clipboard.writeText(window.location.href)
+			.then(showCopyTooltip)
+			.catch(() => {
+				if (fallbackCopy(window.location.href)) showCopyTooltip();
+			});
+	});
 	
 	
   });
