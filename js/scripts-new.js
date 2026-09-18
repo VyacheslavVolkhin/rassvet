@@ -66,6 +66,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	//new 12.09.2026
 
+	// table added wrapper
+	const tables = document.querySelectorAll('table');
+  
+	tables.forEach(function(table) {
+	  const parent = table.parentElement;
+	  const hasWrapper = parent && parent.classList.contains('table-inner-wrap');
+	  
+	  if (!hasWrapper) {
+		const wrapper = document.createElement('div');
+		wrapper.className = 'table-inner-wrap';
+		table.parentNode.insertBefore(wrapper, table);
+		wrapper.appendChild(table);
+	  }
+	});
+
 	//copy tooltip function
 	function showCopyTooltip() {
 		let tip = document.querySelector('.copy-tooltip');
