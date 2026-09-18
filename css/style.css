@@ -10096,6 +10096,9 @@ table .td-text-box p {
 }
 /* end added 27.08.2026 */
 /* added 12.09.2026 */
+.article-box p > img {
+  border-radius: var(--mainRadius);
+}
 thead[data-tab].active {
   display: table-header-group;
 }
